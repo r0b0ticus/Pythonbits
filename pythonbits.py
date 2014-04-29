@@ -132,7 +132,7 @@ class PythonbitsConfig:
 			update_url = "https://github.com/Ichabond/Pythonbits/raw/master/config.xml"
 			opener = _MyOpener()
 			nconf = opener.open(update_url)
-			if nconf.info()["Status"]=="200 OK":
+			if nconf.code == 200:
 				fh = open(self.tempdir+"config.xml", "w")
 				fh.write(nconf.read())
 				fh.close()
